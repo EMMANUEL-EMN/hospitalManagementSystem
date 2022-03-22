@@ -1,5 +1,5 @@
 <div class="addheading">
-    <h1>FEATURED NEWS AND INFORMATION</h1>
+    <h5>FEATURED NEWS AND INFORMATION</h5>
 </div>
 <div class="d-flex justify-content-between">
     @foreach ($advert as $c)

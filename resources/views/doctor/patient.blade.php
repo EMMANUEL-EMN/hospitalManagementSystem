@@ -1,5 +1,6 @@
 <div id="maincont1">
     <div class="text-center">
+        <hr>
         <h1>PATIENT`S RECORDS</h1>
     </div>
     <table>

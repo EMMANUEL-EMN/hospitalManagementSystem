@@ -2,6 +2,9 @@
     <center>
         <div id="maincont">
             <h3>PATIENT REGISTRATION </h3>
+            @if (session()->has('status'))
+                <p class="alert alert-success">{{ session('status') }}</p>
+            @endif
             <form action="{{ route('patient.reg') }}" method="POST" enctype="multipart/form-data">
                 @method('post')
                 @csrf

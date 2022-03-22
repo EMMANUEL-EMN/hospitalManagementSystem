@@ -27,7 +27,7 @@ class authUser extends Controller
 
     public function logedin()
     {
-       $patient = patient::all();
+       $patient = patient::orderBy('id','DESC')->get();
         return view('doctor.dashboard', compact('patient'));
        
     }
@@ -49,6 +49,6 @@ class authUser extends Controller
         $patient->nid = $req->NID;
         $patient->phone = $req->tel;
         $patient->save();
-        return view('doctor.dashboard');
+        return redirect('/doctor')->with('status', 'Successfully registered');
     }
 }

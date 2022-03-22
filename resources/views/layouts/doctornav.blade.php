@@ -15,22 +15,11 @@
 </head>
 <body>
     <div class="container-fluid">
-        <div class="row">
+        <div class="row no-gutters">
             <div class="col-sm-3">
-                <div class="nav" style="background-color: white">
-                    <h5>CONTROL PANEL</h5>
-                    <div class="unav">
-                        <ul style="list-style-type: none;">
-                            {{-- <li>
-                                <a href="">REGISTER PATIENTS</a>
-                            </li> --}}
-                            {{-- <li>
-                                <a href="">VIEW PATIENTS</a>
-                            </li> --}}
-                            <li>
-                                <a href="/logout">LOGOUT</a>
-                            </li>
-                        </ul>
+                <div class="nav" style="background-color: #227ad8; color: white;">
+                    <div class="nav">
+                        @include('doctor.sidenav')
                     </div>
                 </div>
             </div>
