@@ -3,11 +3,11 @@
 @section('title', 'contact us')
 
 @section('content')
-   
+
     <div id="maincont">
         <center>
             <div class="contact">
-                <form action="{{ route('contact.post')}}" method="POST" enctype="multipart/form-data">
+                <form action="{{ route('contact.post') }}" method="POST" enctype="multipart/form-data">
                     @method('post')
                     @csrf
                     @if (session()->has('status'))
@@ -23,7 +23,7 @@
                         <textarea name="msg" id="msg" cols="70" rows="10"></textarea>
                     </p>
                     <p>
-                        <button class="btn btn-warning">Submit</button>
+                        <button class="btn btn-warning">SEND</button>
                     </p>
                 </form>
             </div>

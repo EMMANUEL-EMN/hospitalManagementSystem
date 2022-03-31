@@ -1,52 +1,65 @@
-<div>
-    <center>
-        <div id="maincont">
-            <h3>PATIENT REGISTRATION </h3>
-            @if (session()->has('status'))
-                <p class="alert alert-success">{{ session('status') }}</p>
-            @endif
-            <form action="{{ route('patient.reg') }}" method="POST" enctype="multipart/form-data">
-                @method('post')
-                @csrf
+@extends('layouts.doctornav')
+
+@section('title', 'patient registration')
+
+@section('content')
+    <div class="regPatient">
+        <hr>
+        <h4 class="text-center">REGISTER PATIENTS</h4>
+        <hr>
+        <form action="{{ route('patient.reg') }}" method="POST" enctype="multipart/form-data">
+            @csrf
+            @method('post')
             <table>
                 <tr>
                     <td>First Name</td>
                     <td>Last Name</td>
                 </tr>
                 <tr>
-                    <td><input type="text" name="fname" id="fname" placeholder="john"></td>
-                    <td><input type="text" name="lname" id="lname" placeholder="magufuli"></td>
+                    <td><input type="text" name="fname" id="fname" required></td>
+                    <td><input type="text" name="lname" id="fname" required></td>
                 </tr>
                 <tr>
                     <td>Gender</td>
+                    <td>Marrital status</td>
+                </tr>
+                <tr>
+                    <td>
+                        <select name="gender" id="gender">
+                            <option value="" selected></option>
+                            <option value="male">Male</option>
+                            <option value="female">Female</option>
+                            <option value="others">Others</option>
+                        </select>
+                    </td>
+                    <td>
+                        <select name="status" id="status">
+                            <option value=""></option>
+                            <option value="married">Married</option>
+                            <option value="single">Single</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
                     <td>Email</td>
+                    <td>Date</td>
                 </tr>
                 <tr>
-                    <td><input type="text" name="gender" id="gender" placeholder="male,female or others"></td>
-                    <td><input type="text" name="email" id="email" placeholder="xyz@gmail.com"></td>
-                </tr>
-                <tr>
-                    <td>Date Of Birth</td>
-                    <td>Marital Status</td>
-                </tr>
-                <tr>
-                    <td><input type="date" name="date" id="date" ></td>
-                    <td><input type="text" name="status" id="status" placeholder="single or married "></td>
+                    <td><input type="email" name="email" id="email" required></td>
+                    <td><input type="date" name="date" id="date" required></td>
                 </tr>
                 <tr>
                     <td>ID Number</td>
-                    <td>Phone Number</td>
+                    <td>Telephone Number</td>
                 </tr>
                 <tr>
-                    <td><input type="number" name="NID" id="NID" ></td>
-                    <td><input type="number" name="tel" id="tel" ></td>
+                    <td><input type="number" name="NID" id="NID" required></td>
+                    <td><input type="text" name="tel" id="tel" required></td>
                 </tr>
                 <tr>
                     <td><button class="btn btn-warning">REGISTER</button></td>
                 </tr>
             </table>
-            </form>
-        </div>
-        
-    </center>
-</div>
+        </form>
+    </div>
+@endsection

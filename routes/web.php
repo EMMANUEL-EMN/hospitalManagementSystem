@@ -57,3 +57,4 @@ Route::put('/updateBlog', [c_admin::class, 'updateBlog'])->name('blog.update');
 Route::get('/doctor_dashboard', [authUser::class, 'logedin']);
 Route::get('/doctor', [authUser::class, 'logedin']);
 Route::post('/reg_patient', [authUser::class, 'register'])->name('patient.reg');
+Route::get('/doctor/view/patients', [authUser::class, 'patients']);

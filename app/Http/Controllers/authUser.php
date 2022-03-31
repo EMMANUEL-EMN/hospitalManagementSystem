@@ -12,8 +12,8 @@ class authUser extends Controller
     public function auth(Request $req)
     {
         $validated = $req->validate([
-            'email'=> 'required|email',
-            'password'=> 'required'
+            'email' => 'required|email',
+            'password' => 'required'
         ]);
         $users = User::all();
         foreach ($users as $user) {
@@ -22,14 +22,13 @@ class authUser extends Controller
                 return redirect('/doctor');
             }
         }
-        return redirect('/login/')->with('status','invalid login credentials');
+        return redirect('/login/')->with('status', 'invalid login credentials');
     }
 
     public function logedin()
     {
-       $patient = patient::orderBy('id','DESC')->get();
-        return view('doctor.dashboard', compact('patient'));
-       
+        $patient = patient::orderBy('id', 'DESC')->get();
+        return view('doctor.patient', compact('patient'));
     }
     public function logout()
     {
@@ -50,5 +49,10 @@ class authUser extends Controller
         $patient->phone = $req->tel;
         $patient->save();
         return redirect('/doctor')->with('status', 'Successfully registered');
+    }
+
+    public function patients()
+    {
+        return view('doctor.regform');
     }
 }
